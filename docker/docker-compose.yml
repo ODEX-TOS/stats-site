@@ -61,17 +61,3 @@ services:
     tmpfs:
       - /tmp
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:4.7.7-1
-    environment:
-      - PMA_HOST=localhost
-      - PMA_USER=root
-      - PMA_PASSWORD=
-    ports:
-      - "8190:80"
-    volumes:
-      - mariadb-socket:/run/mysqld
-    tmpfs:
-      - /tmp
-    depends_on:
-      - mariadb
