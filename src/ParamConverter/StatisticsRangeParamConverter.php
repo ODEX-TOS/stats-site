@@ -23,10 +23,14 @@ class StatisticsRangeParamConverter implements ParamConverterInterface
                 (int)strtotime('now -1 months')
             ))
         );
+        $nextMonth = $defaultMonth + 1;
+        if($this->nextMonth % 12 == 0) {
+            return $this->nextMonth + 100;
+        }
 
         $statisticsRangeRequest = new StatisticsRangeRequest(
             (int)$request->get('startMonth', $defaultMonth),
-            (int)$request->get('endMonth', $defaultMonth)
+            (int)$request->get('endMonth', $nextMonth)
         );
 
         $request->attributes->set(
