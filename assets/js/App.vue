@@ -73,7 +73,7 @@ export default {
       link: [
         {
           rel: "icon",
-          href: require("@/images/tos.svg"),
+          href: require("@/images/tosicon.svg"),
           sizes: "any",
           type: "image/svg+xml"
         }
