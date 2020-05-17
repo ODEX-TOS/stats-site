@@ -96,3 +96,12 @@ deploy:
 	composer --no-interaction install --prefer-dist --no-dev --optimize-autoloader
 	composer dump-env prod
 	bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration
+
+deploy-docker:
+	${NODE-RUN} yarn install --non-interactive --frozen-lockfile --prod
+	${NODE-RUN} node_modules/.bin/encore prod
+	find public/build -type f -mtime +30 -delete
+	find public/build -type d -empty -delete
+	${PHP-RUN} composer --no-interaction install --prefer-dist --no-dev --optimize-autoloader
+	${PHP-RUN} composer dump-env prod
+	${PHP-DB-RUN} bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration
