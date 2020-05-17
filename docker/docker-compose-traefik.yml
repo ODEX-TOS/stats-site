@@ -1,0 +1,86 @@
+version: "3.4"
+
+volumes:
+  mariadb-socket:
+  mariadb-data:
+  php-fpm-socket:
+
+services:
+  php:
+    build: php
+    working_dir: /app
+    environment:
+      - HOME=/tmp
+    command: php-fpm -F
+    user: "${UID}:${GID}"
+    volumes:
+      - ../:/app
+      - mariadb-socket:/run/mysqld
+      - php-fpm-socket:/run/php-fpm
+    tmpfs:
+      - /tmp
+    depends_on:
+      - mariadb
+    networks:
+      - web
+
+  encore:
+    build: node
+    working_dir: /app
+    environment:
+      - HOME=/tmp
+    command: node_modules/.bin/encore dev-server --host 0.0.0.0 --port 8180 --disable-host-check --inline=false --output-public-path=/build/
+    user: "${UID}:${GID}"
+    volumes:
+      - ../:/app
+    tmpfs:
+      - /tmp
+    networks:
+      - web
+
+  nginx:
+    build: nginx
+    working_dir: /app
+    command: nginx -g "daemon off;"
+    user: "${UID}:${GID}"
+    ports:
+      - "8111:8180"
+    volumes:
+      - ../:/app:ro
+      - php-fpm-socket:/run/php-fpm
+    tmpfs:
+      - /tmp
+      - /var/lib/nginx
+    networks:
+      - web
+    depends_on:
+      - php
+    labels:
+      - "traefik.enable=true"
+      # HTTPS Rules
+      - "traefik.http.routers.stats_SSL.rule=Host(`stats.odex.be`) || Host(`stats.pbfp.xyz`)"
+      - "traefik.http.routers.stats_SSL.entrypoints=https"
+      - "traefik.http.routers.stats_SSL.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.stats_SSL.tls=true"
+      - "traefik.http.services.stats_SSL.loadbalancer.server.port=8180"
+      # HTTP
+      - "traefik.http.routers.stats.rule=Host(`stats.odex.be`) || Host(`stats.pbfp.xyz`)"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.stats.entrypoints=http"
+      - "traefik.http.routers.stats.middlewares=https-redirect"
+
+  mariadb:
+    build: mariadb
+    command: mysqld
+    user: mysql
+    network_mode: none
+    networks:
+      - web
+    volumes:
+      - mariadb-data:/var/lib/mysql
+      - mariadb-socket:/run/mysqld
+    tmpfs:
+      - /tmp
+networks:
+  web:
+    external: true
