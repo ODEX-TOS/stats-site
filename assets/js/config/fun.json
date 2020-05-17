@@ -8,16 +8,15 @@
     "midori"
   ],
   "Editors": [
+    "vim",
     "nano",
     "vi",
-    "vim",
     "gedit",
     "kate",
     "emacs",
     "mousepad",
-    "kwrite",
-    "geany",
-    "leafpad"
+    "visual-studio-code",
+    "visual-studio-code-insiders"
   ],
   "Desktop Environments": [
     "plasma-workspace",
@@ -25,32 +24,20 @@
     "xfdesktop",
     "cinnamon",
     "lxde-common",
-    "mate-panel"
+    "mate-panel",
+    "awesome-tos"
   ],
   "File Managers": [
+    "nemo",
     "thunar",
     "nautilus",
     "dolphin",
-    "mc",
-    "nemo",
     "pcmanfm",
     "konqueror",
     "caja"
   ],
-  "Window Managers": [
-    "openbox",
-    "i3-wm",
-    "awesome",
-    "sway",
-    "fluxbox"
-  ],
-  "Shells": [
-    "bash",
-    "zsh",
-    "fish",
-    "dash",
-    "tcsh"
-  ],
+  "Window Managers": ["openbox", "i3-wm", "awesome", "sway", "fluxbox"],
+  "Shells": ["bash", "zsh", "fish", "dash", "tcsh"],
   "Xorg GPU drivers": [
     "xf86-video-intel",
     "nvidia-utils",

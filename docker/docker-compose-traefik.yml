@@ -73,7 +73,6 @@ services:
     build: mariadb
     command: mysqld
     user: mysql
-    network_mode: none
     networks:
       - web
     volumes:

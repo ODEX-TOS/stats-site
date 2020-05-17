@@ -10,7 +10,7 @@
             packages installed on your system, along with the architecture and
             mirror you use. This information is anonymous and cannot be used to
             identify you, but it will help us prioritize our efforts and make
-            Arch even better.
+            TOS even better.
           </p>
         </b-jumbotron>
 
@@ -18,7 +18,8 @@
           <h4>Getting started</h4>
           <ol class="pl-4">
             <li>
-              Install pkstats by <code>tos -Syu <strong>pkgstats</strong></code>
+              Install pkgstats by
+              <code>tos -Syu <strong>pkgstats</strong></code>
             </li>
             <li>
               Ensure the weekly timer is started:
