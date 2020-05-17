@@ -96,6 +96,6 @@ class PackagePopularity implements \JsonSerializable
      */
     public function getEndMonth(): int
     {
-        return $this->endMonth + 1;
+        return $this->endMonth;
     }
 }

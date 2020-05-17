@@ -34,6 +34,6 @@ class StatisticsRangeRequest
      */
     public function getEndMonth(): int
     {
-        return $this->endMonth + 1;
+        return $this->endMonth;
     }
 }

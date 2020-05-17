@@ -24,7 +24,7 @@ class StatisticsRangeParamConverter implements ParamConverterInterface
             ))
         );
         $nextMonth = $defaultMonth + 1;
-        if($this->nextMonth % 12 == 0) {
+        if($nextMonth % 12 == 0) {
             return $this->nextMonth + 100;
         }
 
