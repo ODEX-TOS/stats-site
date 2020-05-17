@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="pkgstats.archlinux.de">
+<ruleset name="stats.odex.be">
     <file>src</file>
     <exclude-pattern>src/Kernel.php</exclude-pattern>
     <file>tests</file>

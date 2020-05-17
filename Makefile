@@ -3,7 +3,7 @@
 
 UID!=id -u
 GID!=id -g
-COMPOSE=UID=${UID} GID=${GID} docker-compose -f docker/docker-compose.yml -p pkgstats_archlinux_de
+COMPOSE=UID=${UID} GID=${GID} docker-compose -f docker/docker-compose.yml -p stats.odex.be
 COMPOSE-RUN=${COMPOSE} run --rm -u ${UID}:${GID}
 PHP-DB-RUN=${COMPOSE-RUN} php
 PHP-RUN=${COMPOSE-RUN} --no-deps php

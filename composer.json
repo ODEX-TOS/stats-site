@@ -1,6 +1,6 @@
 {
     "type": "project",
-    "name": "archlinux-de/pkgstats.archlinux.de",
+    "name": "archlinux-de/stats.odex.be",
     "description": "Arch Linux package statistics website",
     "license": "GPL-3.0-or-later",
     "require": {
