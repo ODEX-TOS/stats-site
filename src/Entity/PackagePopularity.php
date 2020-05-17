@@ -91,10 +91,14 @@ class PackagePopularity implements \JsonSerializable
     }
 
     /**
+     * The end month must be at least 1 bigger than the start month
      * @return int
      */
     public function getEndMonth(): int
     {
-        return $this->endMonth;
+        if($this->endMonth % 12 == 0) {
+            return $this->endMonth + 100;
+        }
+        return $this->endMonth + 1;
     }
 }
