@@ -1,7 +1,7 @@
 {
     "type": "project",
-    "name": "archlinux-de/stats.odex.be",
-    "description": "Arch Linux package statistics website",
+    "name": "odex/stats.odex.be",
+    "description": "Tos Linux package statistics website",
     "license": "GPL-3.0-or-later",
     "require": {
         "php": "^7.4",
