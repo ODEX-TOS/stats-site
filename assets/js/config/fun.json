@@ -1,31 +1,18 @@
 {
   "Browsers": [
     "firefox",
+    "firefox-developer-edition",
     "chromium",
     "google-chrome",
-    "epiphany",
-    "konqueror",
-    "midori"
+    "brave-bin"
   ],
-  "Editors": [
-    "vim",
-    "nano",
-    "vi",
-    "gedit",
-    "kate",
-    "emacs",
-    "mousepad",
+  "Editors": ["vim", "nano", "vi", "gedit", "kate", "emacs", "mousepad"],
+  "IDE's": [
     "visual-studio-code",
-    "visual-studio-code-insiders"
-  ],
-  "Desktop Environments": [
-    "plasma-workspace",
-    "gnome-shell",
-    "xfdesktop",
-    "cinnamon",
-    "lxde-common",
-    "mate-panel",
-    "awesome-tos"
+    "visual-studio-code-insiders",
+    "eclipse-java",
+    "android-studio",
+    "atom"
   ],
   "File Managers": [
     "nemo",
@@ -36,7 +23,6 @@
     "konqueror",
     "caja"
   ],
-  "Window Managers": ["openbox", "i3-wm", "awesome", "sway", "fluxbox"],
   "Shells": ["bash", "zsh", "fish", "dash", "tcsh"],
   "Xorg GPU drivers": [
     "xf86-video-intel",
@@ -54,6 +40,8 @@
     "ruby",
     "nodejs",
     "java-environment-common",
-    "php"
+    "php",
+    "go",
+    "rust"
   ]
 }
