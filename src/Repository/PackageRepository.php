@@ -121,7 +121,7 @@ class PackageRepository extends ServiceEntityRepository
         try {
             return $queryBuilder
                 ->getQuery()
-                ->enableResultCache(60 * 60 * 24 * 30)
+                //->enableResultCache(60 * 60 * 24 * 30)
                 ->getSingleScalarResult();
         } catch (NoResultException $e) {
             return 0;
@@ -167,7 +167,6 @@ class PackageRepository extends ServiceEntityRepository
                 ->andWhere('package.name LIKE :query')
                 ->setParameter('query', $query . '%');
         }
-
         $pagination = new Paginator($queryBuilder, false);
         $total = $pagination->count();
         $packages = $pagination->getQuery()->getScalarResult();
@@ -202,7 +201,7 @@ class PackageRepository extends ServiceEntityRepository
             ->setParameter('startMonth', $startMonth)
             ->setParameter('endMonth', $endMonth)
             ->getQuery()
-            ->enableResultCache(60 * 60 * 24 * 30)
+            //->enableResultCache(60 * 60 * 24 * 30)
             ->getScalarResult();
     }
 }
